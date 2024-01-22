@@ -47,12 +47,12 @@ dotnet restore
 
     builder.Services.AddDbContext<AppDbContext>(options =>
     {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2"));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
 
     builder.Services.AddDbContext<StudentDbContext>(options =>
     {
-        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2"));
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
 ```
 ### 3. Before Running the App:
