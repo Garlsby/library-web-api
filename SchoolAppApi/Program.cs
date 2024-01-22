@@ -22,12 +22,12 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 }); 
 
 builder.Services.AddDbContext<StudentDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection2"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 }); 
 
 var tokenValidationParameters = new TokenValidationParameters()
