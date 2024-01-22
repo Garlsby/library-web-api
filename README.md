@@ -16,7 +16,8 @@ git clone https://github.com/Garlsby/library-web-api.git
 - Inside the project folder, open the solution file (SLN file) named SchoolAppApi.sln.
 
 ### 4. Run Dotnet Restore:
-
+Execute using Package Manager Console in :
+#### Tools > NuGet Package Manager > Package Manager Console
 - In the terminal, run the following command to restore project dependencies:
 
 ```bash
@@ -40,7 +41,6 @@ dotnet restore
     },
 ```
 ### 2. Update Program.cs:
-
 - Go to the Program.cs file and change the GetConnectionString to your desired connection:
 
 ```csharp
