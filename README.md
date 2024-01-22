@@ -1,11 +1,10 @@
 # 📖 Library Web API Installation and Configuration Guide
 ## Table of Contents
 
-- [Installation](#installation)
-- [Connection String Modification](#connection-string-modification)
-- [Getting Started](#getting-started)
-- [API Endpoints](#api-endpoints)
-- [Authentication](#authentication)
+- 🌐 Installation
+- ⚙ Connection String Modification
+- 📌 API Endpoints
+- 🔐 Authentication
 
 # 🌐 Installation:
 
@@ -80,10 +79,13 @@ update-database -Context StudentDbContext
 <br>
 
 # 📌 API Endpoints
+
+
 ### 🧒 Students
 
-| Endpoint                                 | Method | Description                                  |
+| Endpoint                                 | Method | Description                                  | 
 | ---------------------------------------- | ------ | -------------------------------------------- |
+| `/api/Admin/token-validation`	           | GET	| Validates the authentication token.|
 | `/api/Admin/Students`                    | GET    | Get a list of all students.                  |
 | `/api/Admin/Student/{studentId}`         | GET    | Get a specific student by ID.               |
 | `/api/Admin/StudentByName/{name}`        | GET    | Get students by their name.                 |
@@ -92,6 +94,32 @@ update-database -Context StudentDbContext
 | `/api/Admin/CreateStudent`               | POST   | Create a new student. Requires a JSON payload with student details. |
 | `/api/Admin/UpdateStudent/{studentId}`   | PUT    | Update an existing student by ID. Requires a JSON payload with updated student details. |
 | `/api/Admin/DeleteStudent/{studentId}`   | DELETE | Delete a student by ID.                      |
+### Example Borrow Request :
+**PUT** `/api/admin/UpdateStudent?bookId={bookId}studentId={studentId}` <br>
+Params :
+```json
+body: {}
+```
+
+<br>
+
+### Example Student Request body :
+
+#### note: <br>
+Elementary is a enum <br>
+0 = lower<br>
+1 = upper<br>
+2 = middle<br>
+3 = highschool<br>
+4 = teacher<br>
+
+```json
+{
+  "Name": "Sample Title",
+  "ImageUrl": "https://example.com/image.jpg",
+  "Elementary: 1
+}
+```
 
 ### 📚 Books
 
@@ -105,4 +133,76 @@ update-database -Context StudentDbContext
 | `/api/Admin/ReturnBook/{bookId}`        | PUT    | Mark a book as returned by setting its StudentId to null. |
 | `/api/Admin/UpdateBook/{bookId}`        | PUT    | Update an existing book by ID. Requires a JSON payload with updated book details. |
 | `/api/Admin/DeleteBook/{bookId}`        | DELETE | Delete a book by ID.                      |
+
+Example Book Request body
+```json
+{
+  "Title": "Sample Title",
+  "Series": "Sample Series",
+  "ImageUrl": "https://example.com/image.jpg",
+  "ISBN13": "1234567890123",
+  "ISBN10": "0123456789",
+  "StudentId": 1
+}
+
+```
+<br>
+
+# 🔐 Authentication
+
+### User Registration
+
+| Endpoint                    | Method | Description                   |
+| --------------------------- | ------ | ----------------------------- |
+| `/api/Authentication/register-user` | POST   | Register a new user.          |
+
+### User Login
+
+| Endpoint                    | Method | Description                   |
+| --------------------------- | ------ | ----------------------------- |
+| `/api/Authentication/login-user` | POST   | Authenticate and login a user.|
+
+### Refresh Token
+
+| Endpoint                    | Method | Description                   |
+| --------------------------- | ------ | ----------------------------- |
+| `/api/Authentication/refresh-token` | POST   | Refresh the JWT token using a refresh token. |
+
+## Request and Response Examples
+
+### User Registration
+
+**Endpoint:** `/api/Authentication/register-user`
+
+**Method:** `POST`
+
+**Description:** Register a new user.
+
+**Request Body:**
+```json
+{
+  "FirstName": "John",
+  "LastName": "Doe",
+  "EmailAddress": "john.doe@example.com",
+  "UserName": "john_doe",
+  "Password": "password",
+  "Role": "Manager"
+}
+```
+
+### User Login
+**Endpoint:** `/api/Authentication/login-user`
+
+**Method:** `POST`
+
+**Description:** Authenticate and login a user.
+
+**Request Body:**
+```json
+{
+  "EmailAddress": "john.doe@example.com",
+  "Password": "password"
+}
+
+
 
