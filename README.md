@@ -1,5 +1,13 @@
-# Library Web API Installation and Configuration Guide
-## Installation:
+# 📖 Library Web API Installation and Configuration Guide
+## Table of Contents
+
+- [Installation](#installation)
+- [Connection String Modification](#connection-string-modification)
+- [Getting Started](#getting-started)
+- [API Endpoints](#api-endpoints)
+- [Authentication](#authentication)
+
+# 🌐 Installation:
 
 ### 1. Clone the Project:
 
@@ -24,7 +32,9 @@ Execute using Package Manager Console in :
 dotnet restore
 ```
 
-## Connection String Modification:
+<br>
+
+# ⚙ Connection String Modification: 
 
 ### 1. Update appsettings.json:
 
@@ -67,3 +77,32 @@ update-database -Context AppDbContext
 Add-Migration InitialCreate -Context StudentDbContext
 update-database -Context StudentDbContext
 ```
+<br>
+
+# 📌 API Endpoints
+### 🧒 Students
+
+| Endpoint                                 | Method | Description                                  |
+| ---------------------------------------- | ------ | -------------------------------------------- |
+| `/api/Admin/Students`                    | GET    | Get a list of all students.                  |
+| `/api/Admin/Student/{studentId}`         | GET    | Get a specific student by ID.               |
+| `/api/Admin/StudentByName/{name}`        | GET    | Get students by their name.                 |
+| `/api/Admin/StudentsByDescending`        | GET    | Get a list of all students in descending order. |
+| `/api/Admin/StudentBooks`                | GET    | Get information about students and the books they have borrowed. |
+| `/api/Admin/CreateStudent`               | POST   | Create a new student. Requires a JSON payload with student details. |
+| `/api/Admin/UpdateStudent/{studentId}`   | PUT    | Update an existing student by ID. Requires a JSON payload with updated student details. |
+| `/api/Admin/DeleteStudent/{studentId}`   | DELETE | Delete a student by ID.                      |
+
+### 📚 Books
+
+| Endpoint                                | Method | Description                              |
+| --------------------------------------- | ------ | ---------------------------------------- |
+| `/api/Admin/Books`                      | GET    | Get a list of all books.                 |
+| `/api/Admin/Book/{bookId}`              | GET    | Get a specific book by ID.               |
+| `/api/Admin/BookByName/{name}`          | GET    | Get books by their name.                 |
+| `/api/Admin/BooksByUserId/{userId}`     | GET    | Get books by the user ID who owns them.  |
+| `/api/Admin/CreateBook`                  | POST   | Create a new book. Requires a JSON payload with book details. |
+| `/api/Admin/ReturnBook/{bookId}`        | PUT    | Mark a book as returned by setting its StudentId to null. |
+| `/api/Admin/UpdateBook/{bookId}`        | PUT    | Update an existing book by ID. Requires a JSON payload with updated book details. |
+| `/api/Admin/DeleteBook/{bookId}`        | DELETE | Delete a book by ID.                      |
+
