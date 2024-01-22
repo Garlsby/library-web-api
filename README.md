@@ -35,9 +35,9 @@ dotnet restore
 ```json
 
     "ConnectionStrings": {
-      "DefaultConnection": "Data Source=SQL5110.site4now.net;Initial Catalog=db_aa13d3_laksia;User Id=db_aa13d3_laksia_admin;Password=Celmans1234,",
-      "DefaultConnection2": "Data Source=localhost;Initial Catalog=StudentsBook;Integrated Security=True;Pooling=False;TrustServerCertificate=True"
+      "DefaultConnection": "Data Source=localhost;Initial Catalog=StudentsBook;Integrated Security=True;Pooling=False;TrustServerCertificate=True"
       // Add your custom connection strings here
+      // don't forget to include TrustServerCertificate=True 
     },
 ```
 ### 2. Update Program.cs:
