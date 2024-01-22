@@ -90,10 +90,10 @@ update-database -Context StudentDbContext
 | `/api/Admin/Student/{studentId}`         | GET    | Get a specific student by ID.               |
 | `/api/Admin/StudentByName/{name}`        | GET    | Get students by their name.                 |
 | `/api/Admin/StudentsByDescending`        | GET    | Get a list of all students in descending order. |
-| `/api/Admin/StudentBooks`                | GET    | Get information about students and the books they have borrowed. |
-| `/api/Admin/CreateStudent`               | POST   | Create a new student. Requires a JSON payload with student details. |
-| `/api/Admin/UpdateStudent/{studentId}`   | PUT    | Update an existing student by ID. Requires a JSON payload with updated student details. |
-| `/api/Admin/DeleteStudent/{studentId}`   | DELETE | Delete a student by ID.                      |
+| `/api/Admin/Student-Books`                | GET    | Get information about students and the books they have borrowed. |
+| `/api/Admin/Create-Student`               | POST   | Create a new student. Requires a JSON payload with student details. |
+| `/api/Admin/Update-Student/{studentId}`   | PUT    | Update an existing student by ID. Requires a JSON payload with updated student details. |
+| `/api/Admin/Delete-Student/{studentId}`   | DELETE | Delete a student by ID.                      |
 ### Example Borrow Request :
 **PUT** `/api/admin/UpdateStudent?bookId={bookId}studentId={studentId}` <br>
 Params :
@@ -129,10 +129,10 @@ Elementary is a enum <br>
 | `/api/Admin/Book/{bookId}`              | GET    | Get a specific book by ID.               |
 | `/api/Admin/BookByName/{name}`          | GET    | Get books by their name.                 |
 | `/api/Admin/BooksByUserId/{userId}`     | GET    | Get books by the user ID who owns them.  |
-| `/api/Admin/CreateBook`                  | POST   | Create a new book. Requires a JSON payload with book details. |
-| `/api/Admin/ReturnBook/{bookId}`        | PUT    | Mark a book as returned by setting its StudentId to null. |
-| `/api/Admin/UpdateBook/{bookId}`        | PUT    | Update an existing book by ID. Requires a JSON payload with updated book details. |
-| `/api/Admin/DeleteBook/{bookId}`        | DELETE | Delete a book by ID.                      |
+| `/api/Admin/Add-Book`                  | POST   | Create a new book. Requires a JSON payload with book details. |
+| `/api/Admin/Return-Book/{bookId}`        | PUT    | Mark a book as returned by setting its StudentId to null. |
+| `/api/Admin/Update-Book/{bookId}`        | PUT    | Update an existing book by ID. Requires a JSON payload with updated book details. |
+| `/api/Admin/Delete-Book/{bookId}`        | DELETE | Delete a book by ID.                      |
 
 Example Book Request body
 ```json
